@@ -1,0 +1,34 @@
+<div class="text-layout">
+    <h1>Pipes i18N</h1>
+    <p>
+        Pipes include in Angular, usuality in the Common Module.
+    </p>
+</div>
+
+<div class="p-grid">
+
+    <div class="p-col p-md-6">
+        <p-fieldset legend="i18n SelectPipe"  [toggleable]="true">
+            <p>Greetings " people1. name ", " people1.gender | i18nSelect:optionsMap "</p>
+            <br>
+            <p>Greetings {{ people1. name }}, {{ people1.gender | i18nSelect:optionsMap}}</p>
+            <br>
+            <p>Greetings {{ people2. name }}, {{ people2.gender | i18nSelect:optionsMap}}</p>
+        </p-fieldset>
+    </div>
+
+    <div class="p-col p-md-6">
+        <p-fieldset legend="i18n PluralPipe"  [toggleable]="true">
+            <p>We have a " singularClient.length | i18nPlural:clientsMap " wainting.</p>
+            <p>We have a {{ singularClient.length | i18nPlural:clientsMap }} wainting.</p>
+            <br>
+            <p>We have a " pluralClients.length | i18nPlural:clientsMap " wainting.</p>
+            <p>We have a {{ pluralClients.length | i18nPlural:clientsMap }} wainting.</p>
+            
+
+
+            
+        </p-fieldset>
+    </div>
+
+</div>
