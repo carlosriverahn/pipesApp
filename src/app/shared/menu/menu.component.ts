@@ -37,8 +37,9 @@ export class MenuComponent implements OnInit {
        ]
      },
      {
-       label:'Perzonalizer Pipes'
-       
+       label:'Perzonalizer Pipes',
+       icon: 'pi pi-cog',
+       routerLink: 'orders'       
      }
     ];
   }

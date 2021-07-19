@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-not-commons',
@@ -15,22 +16,70 @@ export class NotCommonsComponent {
 
   people2: any = {
     name : "Susana",
-    gender : "feminine"
+    gender : "female"
   }
+
 
   optionsMap = {
     "male" : "you are a great man",
-    "feminine" : " you are beautifull woman"
+    "female" : " you are beautifull woman"
   }
+
+  //keyValuePipe
+  peoplePipeKeyvalue = {
+    name: 'Carlos',
+    age: 36,
+    address: 'Sevilla'
+  }
+
+  //JsonPipe
+  heroes = [
+    {
+      name: 'Superman',
+      Flying: 'true'
+    },
+    {
+      name: 'Robin',
+      Flying: 'false'
+    },
+    {
+      name: 'Aquaman',
+      Flying: 'false'
+    },
+  ]
+
+  //Async Pipe
+  myObservable = interval(1000);
+
+  valuePromise = new Promise((resolve, reject) => {
+
+    setTimeout(() => {
+      resolve("Data from a Promise")
+
+    },3500);
+    
+  })
 
   //i18nPlura
   singularClient: string [] = ["Carlos"];
-  pluralClients: string [] = ["Susana", "Robert", "Marcos"];
+  pluralClients: string [] = ["Susana", "Robert", "Marcos", "Carlos", "Rafa"];
 
   clientsMap = {
     "=0": "No customers in queue",
     "=1": "there is 1 client in queue",
     "other" : "we have # clients in queue"
+  }
+
+  changePeople() {
+    this.people2= {
+      name : "Rafa",
+      gender : "male"
+    }
+
+  }
+
+  deleteClient() {
+    this.pluralClients.pop();
   }
 
 }

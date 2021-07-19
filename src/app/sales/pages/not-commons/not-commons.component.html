@@ -14,9 +14,15 @@
             <p>Greetings {{ people1. name }}, {{ people1.gender | i18nSelect:optionsMap}}</p>
             <br>
             <p>Greetings {{ people2. name }}, {{ people2.gender | i18nSelect:optionsMap}}</p>
+            
+            <button pButton type="button" 
+                    label="Change Name" 
+                    (click)="changePeople()">                
+            </button>
+
         </p-fieldset>
     </div>
-
+    
     <div class="p-col p-md-6">
         <p-fieldset legend="i18n PluralPipe"  [toggleable]="true">
             <p>We have a " singularClient.length | i18nPlural:clientsMap " wainting.</p>
@@ -25,10 +31,62 @@
             <p>We have a " pluralClients.length | i18nPlural:clientsMap " wainting.</p>
             <p>We have a {{ pluralClients.length | i18nPlural:clientsMap }} wainting.</p>
             
+            <button pButton type="button" 
+                    label="Delete client" 
+                    (click)="deleteClient()">
+            </button>
 
+        </p-fieldset>
+    </div>
 
+    <div class="p-col p-md-6">
+        <p-fieldset legend="Slice Pipe"  [toggleable]="true">
+            
+            <b>Original</b>
+            <pre>{{ pluralClients }}</pre>
+            
+            <b>slice:0:2</b>
+            
+            <pre>{{ pluralClients | slice:0:2}}</pre>
+            
+            <b>slice:2:4</b>
+            
+            <pre>{{ pluralClients | slice:2:4}}</pre>
+            
+        </p-fieldset>
+    </div>
+    
+    <div class="p-col p-md-6">
+        <p-fieldset legend="JSON Pipe"  [toggleable]="true">
+            <pre>{{ heroes | json }}</pre>
+            
+        </p-fieldset>
+    </div>
+    
+    <div class="p-col p-md-6">
+        <p-fieldset legend="Slice Pipe"  [toggleable]="true">
+            <ul>
+                <li *ngFor="let item of peoplePipeKeyvalue | keyvalue" >
+                    <b>{{ item.key }} :</b> {{ item.value }}
+                </li>
+            </ul>
+            
+        </p-fieldset>
+    </div>
+    
+
+    <div class="p-col p-md-6">
+        <p-fieldset legend="Async Pipe"  [toggleable]="true">
+           <b>Couter observable: </b> <pre>{{ myObservable | async }}</pre>
+
+           <hr>
+
+           <b>Data Promise: </b> 
+           <pre *ngIf="!(valuePromise | async)" >Loading promise</pre>
+           <pre>{{ valuePromise | async }}</pre>
             
         </p-fieldset>
     </div>
 
+    
 </div>
